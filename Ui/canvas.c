@@ -96,21 +96,22 @@ void animateCircleCircular(float speed, float speed2) {
         
         point pv[10],pv2[10],pv3[10],pv4[10];
         for (int i = 0; i < 10; i++) {
-            pv[i].x =  j * sinf(angle + i * (2 * PI / 10)) + cx;
-            pv[i].y = j * cosf(angle2 + i * (2 * PI / 10)) + cy;
+            pv[i].x =  (j+30) * sinf(angle + i * (2 * PI / 10)) + cx;
+            pv[i].y = (j+30) * cosf(angle2 + i * (2 * PI / 10)) + cy;
         }
      for (int i = 0; i < 10; i++) {
-            pv2[i].x =  (j+30) * sinf(angle + i * (2 * PI / 10)) + cx;
-            pv2[i].y = (j+30) * cosf(angle2 + i * (2 * PI / 10)) + cy;
-        }
-    for (int i = 0; i < 10; i++) {
-            pv3[i].x =  (j+40) * sinf(angle + i * (2 * PI / 10)) + cx;
-            pv3[i].y = (j+40) * cosf(angle2 + i * (2 * PI / 10)) + cy;
+            pv2[i].x =  (j+120) * sinf(angle + i * (2 * PI / 10)) + cx;
+            pv2[i].y = (j+120) * cosf(angle2 + i * (2 * PI / 10)) + cy;
         }
     
-for (int i = 0; i < 10; i++) {
-            pv4[i].x =  (j+50) * sinf(angle + i * (2 * PI / 10)) + cx;
-            pv4[i].y = (j+50) * cosf(angle + i * (2 * PI / 10)) + cy;
+    for (int i = 0; i < 10; i++) {
+            pv3[i].x =  (j+60) * sinf(angle + i * (2 * PI / 10)) + cx;
+            pv3[i].y = (j+60) * cosf(angle2 + i * (2 * PI / 10)) + cy;
+        }
+    
+     for (int i = 0; i < 10; i++) {
+            pv4[i].x =  (j+90) * sinf(angle + i * (2 * PI / 10)) + cx;
+            pv4[i].y = (j+90) * cosf(angle + i * (2 * PI / 10)) + cy;
         }
     
 
@@ -120,10 +121,10 @@ for (int i = 0; i < 10; i++) {
         BeginDrawing();
         ClearBackground(BLACK);
         for (int i = 0; i < 10; i++) {
-            DrawCircle(pv[i].x, pv[i].y,20, colorArray[i]);
             DrawCircle(pv2[i].x,pv2[i].y,20,colorArray[i]);
             DrawCircle(pv3[i].x, pv3[i].y,20, colorArray[i]);
             DrawCircle(pv4[i].x,pv4[i].y,20,colorArray[i]);
+            DrawCircle(pv[i].x, pv[i].y,20, colorArray[i]);
         }
         EndDrawing();
 
