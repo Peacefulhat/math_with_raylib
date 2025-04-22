@@ -1,7 +1,3 @@
 #!/bin/zsh
 
-gcc -o main $1 $2 -lraylib -lm 
-
-./main
-
-rm -rf main
+gcc -o main main.c Ui/canvas.c -lraylib -lm 
