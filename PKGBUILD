@@ -9,7 +9,7 @@ url="https://github.com/Peacefulhat/math_with_raylib"
 license=('custom')
 depends=('raylib')
 makedepends=('git')
-source=("git+https://github.com/Peacefulhat/math_with_raylib.git")
+source=("$PWD")
 sha512sums=('SKIP')
 
 # Build the project
