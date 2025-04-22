@@ -1,41 +1,43 @@
-# This is a comment in PKGBUILD
+# Maintainer: Your Name <your.email@example.com>
+# PKGBUILD for math_with_raylib
 
-pkgname="math_with_raylib"  # This is the name of the package
-pkgver=10.1
+pkgname="math_with_raylib"
+pkgver="10.1"
 pkgrel=1
-
-# Define the architecture types
 arch=('x86_64' 'i686')
-
-# URL for the project homepage
 url="https://github.com/Peacefulhat/math_with_raylib"
 license=('custom')
 depends=('raylib')
 makedepends=('git')
-
-# Source for the package - using the Git repository
-source=("math_with_raylib")
-
-# Checksum for the source file (skipping validation here)
+source=("git+https://github.com/Peacefulhat/math_with_raylib.git")
 sha512sums=('SKIP')
 
-# Build function - compiling the source
+# Build the project
 build() {
+  # Ensure that we're in the correct directory
   cd "$srcdir/$pkgname"
-  chmod +x build.sh  # Make the build script executable
-  ./build.sh  # Run the build script
+
+  # Make sure the build script is executable
+  chmod +x build.sh
+
+  # Run the build script to compile the application
+  ./build.sh
 }
 
-# Package function - where the package is installed
+# Package the built files
 package() {
+  # The source directory for the cloned Git repository
   cd "$srcdir/$pkgname"
+  
+  # Create the directory for the binary in the package directory
   mkdir -p "$pkgdir/usr/bin"
   
-  # Ensure the file exists after build.sh
+  # Make sure the binary exists after building
   if [ -f "$srcdir/$pkgname/math_with_raylib" ]; then
+    # Copy the built binary into the package
     cp "$srcdir/$pkgname/math_with_raylib" "$pkgdir/usr/bin/math_with_raylib"
   else
-    echo "Error: math_with_raylib not found after build.sh"
+    echo "Error: math_with_raylib binary not found after build.sh"
     exit 1
   fi
 }
